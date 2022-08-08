@@ -5,7 +5,7 @@ import TodoList from "./TodoList"
 import { v4 as uuidv4 } from "uuid"
 
 const TodoContainer = () => {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(getInitialTodos())
 
   const handleChange = id => {
     setTodos(prevState =>
@@ -50,24 +50,19 @@ const TodoContainer = () => {
   }
 
 
-  useEffect(() => {
-    console.log("test run")
-  
+  function getInitialTodos() {
     // getting stored items
     const temp = localStorage.getItem("todos")
-    const loadedTodos = JSON.parse(temp)
-  
-    if (loadedTodos) {
-      setTodos(loadedTodos)
-    }
-  }, [])
+    const savedTodos = JSON.parse(temp)
+    return savedTodos || []
+  }
 
   useEffect(() => {
     // storing todos items
     const temp = JSON.stringify(todos)
     localStorage.setItem("todos", temp)
   }, [todos])
-  
+
   return (
     <div className="container">
       <div className="inner">
