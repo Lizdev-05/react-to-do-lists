@@ -47,7 +47,9 @@ const TodoItem = props => {
           checked={completed}
           onChange={() => props.handleChangeProps(id)}
         />
-       <button onClick={() => props.deleteTodoProps(id)}>Delete</button>
+       <button onClick={() => props.deleteTodoProps(id)}>
+  <FaTrash />
+</button>
         <span style={completed ? completedStyle : null}>{title}</span>
       </div>
       <input
