@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Header from "./Header"
 import InputTodo from "./InputTodo"
 import TodosList from "./TodosList"
@@ -6,6 +6,19 @@ import { v4 as uuidv4 } from "uuid"
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState([])
+
+  useEffect(() => {
+    console.log("test run")
+  
+    // getting stored items
+    const temp = localStorage.getItem("todos")
+    const loadedTodos = JSON.parse(temp)
+  
+    if (loadedTodos) {
+      setTodos(loadedTodos)
+    }
+  }, [setTodos])
+  
 
   const handleChange = id => {
     setTodos(prevState =>
