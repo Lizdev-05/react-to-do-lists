@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Header from "./Header"
 import InputTodo from "./InputTodo"
 import TodoList from "./TodoList"
