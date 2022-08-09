@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import '../App.css'
 
 const Navbar = () => {
   const links = [
@@ -17,16 +18,21 @@ const Navbar = () => {
 
   return (
     <nav className="navBar">
-    <ul>
-      {links.map(link => {
-        return (
-          <li key={link.id}>
-            <NavLink to={link.path}>{link.text}</NavLink>
-          </li>
-        )
-      })}
-    </ul>
-  </nav>
+      <ul>
+        {links.map((link) => {
+          return (
+            <li key={link.id}>
+              <NavLink
+								to={link.path}
+								className={navlink => (navlink.isActive ? 'active-link' : '')}
+							>
+                {link.text}
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 };
 export default Navbar;
