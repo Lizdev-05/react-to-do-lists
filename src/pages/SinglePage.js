@@ -14,7 +14,7 @@ const SinglePage = () => {
       slug: "about-author",
       title: "About the Author",
       description:
-      "This app was developed by Oyinlade Ojesanmi, a web developer student at Microverse and a technical writer. She is opened to freelance Gig. So go ahead and connect with Oyinlade on LinkedIn https://www.linkedin.com/in/elizabeth-oyinlade-ojesanmi-0702aa16a",
+      "This app was developed by Oyinlade Ojesanmi, a web developer student at Microverse and a technical writer. She is opened to freelance Gig and job opportunities",
     },
   ];
 

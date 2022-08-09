@@ -138,6 +138,7 @@ a {
 }
 
 .main__content {
+  margin: 15% auto;
   flex: 7;
 }
 
