@@ -5,7 +5,7 @@ import About from './pages/About'
 import NotMatch from './pages/NotMatch'
 import TodoContainer from './components/TodoContainer'
 import Navbar from './components/Navbar'
-// import SinglePage from './pages/SinglePage'
+import SinglePage from './pages/SinglePage'
 
 const App = () => {
 
@@ -14,8 +14,8 @@ const App = () => {
       <Navbar />
 			<Routes>
 				<Route exact path='/' element={<TodoContainer />} />
-				<Route path='about' element={<About />}>
-					{/* <Route path=':slug' element={<SinglePage />} /> */}
+				<Route path='about/*' element={<About />}>
+					<Route path=':slug' element={<SinglePage />} />
 				</Route>
 				<Route path='*' element={<NotMatch />} />
 			</Routes>

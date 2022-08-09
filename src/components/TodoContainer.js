@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
-import Header from "./Header"
-import InputTodo from "./InputTodo"
-import TodoList from "./TodoList"
-import { v4 as uuidv4 } from "uuid"
+import TodoList from "./TodoList";
+import Header from "./Header";
+import InputTodo from "./InputTodo";
+import { v4 as uuidv4 } from "uuid";
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState(getInitialTodos())
 
-  const handleChange = id => {
+  const switch_item_completion = (id) => {
     setTodos(prevState =>
       prevState.map(todo => {
         if (todo.id === id) {
@@ -17,26 +17,26 @@ const TodoContainer = () => {
           }
         }
         return todo
-      })
+      }),
     )
-  }
+  };
 
   const delTodo = id => {
     setTodos([
-      ...todos.filter(todo => {
-        return todo.id !== id
-      }),
-    ])
-  }
+        ...todos.filter(todo => {
+          return todo.id !== id;
+        })
+      ]);
+  };
 
   const addTodoItem = title => {
     const newTodo = {
       id: uuidv4(),
       title: title,
-      completed: false,
-    }
-    setTodos([...todos, newTodo])
-  }
+      completed: false
+    };
+    setTodos([...todos, newTodo]);
+  };
 
   const setUpdate = (updatedTitle, id) => {
     setTodos(
@@ -49,13 +49,24 @@ const TodoContainer = () => {
     )
   }
 
-
   function getInitialTodos() {
     // getting stored items
     const temp = localStorage.getItem("todos")
     const savedTodos = JSON.parse(temp)
     return savedTodos || []
   }
+
+  // useEffect(() => {
+  //   console.log("test run")
+  //
+  //   // getting stored items
+  //   const temp = localStorage.getItem("todos")
+  //   const loadedTodos = JSON.parse(temp)
+  //
+  //   if (loadedTodos) {
+  //     setTodos(loadedTodos)
+  //   }
+  // }, [setTodos])
 
   useEffect(() => {
     // storing todos items
@@ -64,19 +75,17 @@ const TodoContainer = () => {
   }, [todos])
 
   return (
-    <div className="container">
       <div className="inner">
         <Header />
         <InputTodo addTodoProps={addTodoItem} />
         <TodoList
           todos={todos}
-          handleChangeProps={handleChange}
-          deleteTodoProps={delTodo}
+          todoSwitch={switch_item_completion}
+          deleteTodo={delTodo}
           setUpdate={setUpdate}
         />
       </div>
-    </div>
-  )
-}
+  );
 
+}
 export default TodoContainer
