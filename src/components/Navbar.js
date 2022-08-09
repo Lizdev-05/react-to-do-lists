@@ -1,9 +1,38 @@
-import React from 'react'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import '../App.css'
 
 const Navbar = () => {
-  return (
-    <div>Navbar</div>
-  )
-}
+  const links = [
+    {
+      id: 1,
+      path: "/",
+      text: "Home",
+    },
+    {
+      id: 2,
+      path: "/about",
+      text: "About",
+    },
+  ];
 
-export default Navbar
+  return (
+    <nav className="navBar">
+      <ul>
+        {links.map((link) => {
+          return (
+            <li key={link.id}>
+              <NavLink
+								to={link.path}
+								className={navlink => (navlink.isActive ? 'active-link' : '')}
+							>
+                {link.text}
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+};
+export default Navbar;
