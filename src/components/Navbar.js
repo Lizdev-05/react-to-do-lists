@@ -1,8 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import '../App.css'
+import React, { useState } from "react"
+import { NavLink } from "react-router-dom"
+import { MdClose } from "react-icons/md"
+import { FiMenu } from "react-icons/fi"
 
 const Navbar = () => {
+
+  const [navbarOpen, setNavbarOpen] = useState(false)
+
   const links = [
     {
       id: 1,
@@ -14,25 +18,44 @@ const Navbar = () => {
       path: "/about",
       text: "About",
     },
-  ];
+  ]
+
+  const handleToggle = () => {
+    setNavbarOpen(prev => !prev)
+  }
+
+  const closeMenu = () => {
+    setNavbarOpen(false)
+  }
 
   return (
     <nav className="navBar">
-      <ul>
-        {links.map((link) => {
+    <button onClick={handleToggle}>
+      {navbarOpen ? (
+        <MdClose style={{ color: "#fff", width: "40px", height: "40px" }} />
+      ) : (
+        <FiMenu style={{ color: "#7b7b7b", width: "40px", height: "40px" }} />
+      )}
+    </button>
+      <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
+        {links.map(link => {
           return (
             <li key={link.id}>
               <NavLink
-								to={link.path}
-								className={navlink => (navlink.isActive ? 'active-link' : '')}
-							>
-                {link.text}
-              </NavLink>
+                to={link.path}
+                style={({isActive}) => ({
+                  color: isActive ? "orangered" : "blue",
+                  textDecoration: isActive ? "underline" : null
+                })}
+                onClick={closeMenu}
+              end>{link.text}</NavLink>
             </li>
-          );
+          )
         })}
       </ul>
     </nav>
-  );
-};
-export default Navbar;
+  )
+
+}
+
+export default Navbar
