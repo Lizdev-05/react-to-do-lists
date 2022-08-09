@@ -14,7 +14,7 @@ const App = () => {
       <Navbar />
 			<Routes>
 				<Route exact path='/' element={<TodoContainer />} />
-				<Route path='about' element={<About />}>
+				<Route path='about/*' element={<About />}>
 					<Route path=':slug' element={<SinglePage />} />
 				</Route>
 				<Route path='*' element={<NotMatch />} />
