@@ -19,7 +19,6 @@ const SinglePage = () => {
 		},
   ]
   
-
 	const aboutContent = aboutData.filter(item => item.slug === slug)
   const { title, description } = aboutContent
   
