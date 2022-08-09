@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react"
 
 const Navbar = () => {
-  return (
-    <div>Navbar</div>
-  )
-}
+  const links = [
+		{
+			id: 1,
+			path: '/',
+			text: 'Home',
+		},
+		{
+			id: 2,
+			path: '/about',
+			text: 'About',
+		},
+	]
 
+  return <div>Hello from Navbar</div>
+}
 export default Navbar

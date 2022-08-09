@@ -4,13 +4,14 @@ import './App.css'
 import About from './pages/About'
 import NotMatch from './pages/NotMatch'
 import TodoContainer from './components/TodoContainer'
+import Navbar from './components/Navbar'
 // import SinglePage from './pages/SinglePage'
 
 const App = () => {
 
 	return (
 		<>
-
+      <Navbar />
 			<Routes>
 				<Route exact path='/' element={<TodoContainer />} />
 				<Route path='about' element={<About />}>
