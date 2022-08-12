@@ -1,19 +1,20 @@
-import React from 'react'
-import {Link } from "react-router-dom"
+/* eslint-disable */ 
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = (props) => {
-  console.log(props)
+  console.log(props);
   return (
     <div className="about__content">
       <ul className="about__list">
         <li>
-          <Link to={"about-app"}>About App</Link>
+          <Link to="about-app">About App</Link>
         </li>
         <li>
-          <Link to={"about-author"}>About Author</Link>
+          <Link to="about-author">About Author</Link>
         </li>
       </ul>
     </div>
-  )
-}
-export default About
+  );
+};
+export default About;
