@@ -4,7 +4,7 @@
 
 This React to-do application was motivated by a React tutorial. I followed the tutorial judiciously to consolidate my skills in React library. The app can delete, update, and add new tasks to enhance task management.
 
-![screenshot](./src/images/screenshot.png)
+![image](https://user-images.githubusercontent.com/73854999/184507787-6a902d42-6a82-4482-8234-2e2c13bb9ab0.png)
 
 ## Built With
 
@@ -12,7 +12,7 @@ This React to-do application was motivated by a React tutorial. I followed the t
 
 ## Live Demo
 
-[Live Demo Link](https://.github.io/react-todo-app/)
+[Live Demo Link](https://lizdev-todo-lists.netlify.app/)
 
 ### Prerequisites
 
